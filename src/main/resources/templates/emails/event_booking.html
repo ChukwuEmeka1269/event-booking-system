@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking</title>
+</head>
+<body>
+<h1>Hurray!!! Booked!!</h1>
+<p>Hi <span th:text="${username}">John Doe</span> ,</p>
+<p>You have successfully booked for <span th:text="${event.name}">event name</span> Event. Happening on the <span th:text="${event.date}">date</span>
+</p>
+<p>See you there!,</p>
+<p>The Emeka Event Booking Team</p>
+</body>
+</html>

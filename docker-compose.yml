@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  eventbookingsystem:
+    #    image: 'eventBookingSystem'
+    build:
+      context: .
+    restart: on-failure
+    container_name: eventbookingsystem
+    ports:
+      - 9000:9000
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/event_booking_db?createDatabaseIfNotExist=true
+      SPRING_PROFILE_ACTIVE : docker
+      MYSQL_PASSWORD: admin
+      MYSQL_DB_NAME: event_booking_db
+      MYSQL_HOSTNAME: mysqldb
+      MYSQL_PORT: 3309
+      MYSQL_USERNAME: root
+
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: event_booking_db
+      MYSQL_ROOT_PASSWORD: admin
+
